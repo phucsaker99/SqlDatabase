@@ -89,7 +89,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Pet pet = new Pet(name, weight, price, description);
 
         sqLite.addItem(pet);
+        formatInformation();
         adapter.setPets(sqLite.getAllItems());
+    }
+
+    // TODO: 11/21/2020 Làm mới dữ liệu nhập
+    private void formatInformation() {
+        binding.edtName.setText("");
+        binding.edtWeight.setText("");
+        binding.edtPrice.setText("");
+        binding.edtDescription.setText("");
     }
 
     // TODO: 11/21/2020 Xử lý ngoại lệ khi thêm pet
