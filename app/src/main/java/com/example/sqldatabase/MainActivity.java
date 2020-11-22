@@ -157,8 +157,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onPetDeleteClicked(int position) {
-        sqLite.deleteItem(position);
-        adapter.setPets(sqLite.getAllItems()); //để cập nhật lại dữ liệu trong adapter
+    public void onPetDeleteClicked(final int position) {
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setMessage("Bạn có muốn xóa pet này không?")
+                .setTitle("Chú ý!")
+                .setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sqLite.deleteItem(position);
+                        adapter.setPets(sqLite.getAllItems()); //để cập nhật lại dữ liệu trong adapter
+                    }
+                }).show();
+
     }
 }
