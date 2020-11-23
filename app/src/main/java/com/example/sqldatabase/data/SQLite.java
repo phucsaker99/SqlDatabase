@@ -43,9 +43,9 @@ public class SQLite extends SQLiteOpenHelper {
     //Kiểm tra phiên bản SQLiteDatabase
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_NAME);
 
-        onCreate(db);
+            onCreate(db);
     }
 
     //Các lệnh sql

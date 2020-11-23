@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String name = binding.edtName.getText().toString();
         float weight = Float.parseFloat(binding.edtWeight.getText().toString());
         double price = Double.parseDouble(binding.edtPrice.getText().toString());
-        String description = binding.edtDescription.getText().toString().isEmpty()==true?"Không có":binding.edtDescription.getText().toString();
+        String description = binding.edtDescription.getText().toString().isEmpty()?"Không có":binding.edtDescription.getText().toString();
         Pet pet = new Pet(name, weight, price, description);
 
         sqLite.addItem(pet);
