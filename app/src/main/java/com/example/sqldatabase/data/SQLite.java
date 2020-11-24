@@ -163,8 +163,20 @@ public class SQLite extends SQLiteOpenHelper {
     public void deleteItem(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(Constants.TABLE_NAME,
-                Constants.KEY_ID + "=?",
+                Constants.KEY_ID + " =?",
                 new String[]{String.valueOf(id)});
+
+        //close
+        db.close();
+
+    }
+
+    // TODO: 11/21/2020 Xóa item theo 2 parameter
+    public void deleteItem(int id, String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(Constants.TABLE_NAME,
+                Constants.KEY_ID + " =? AND "+ Constants.KEY_NAME+" =?",
+                new String[]{String.valueOf(id), name});
 
         //close
         db.close();

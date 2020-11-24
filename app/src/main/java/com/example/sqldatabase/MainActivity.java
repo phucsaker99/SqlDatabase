@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        sqLite.deleteItem(position);
+                        sqLite.deleteItem(position, "tuan1");
                         adapter.setPets(sqLite.getAllItems()); //để cập nhật lại dữ liệu trong adapter
                     }
                 }).show();
